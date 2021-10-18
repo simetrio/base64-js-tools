@@ -1,8 +1,9 @@
 {
   "name": "base64-js-tools",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Encode/Decode base64 from byte array or text",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
@@ -14,10 +15,12 @@
     "url": "git+https://github.com/simetrio/base64-js-tools.git"
   },
   "keywords": [
-    "base64"
+    "base64",
+    "encode",
+    "decode"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "simetrio",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/simetrio/base64-js-tools/issues"
   },

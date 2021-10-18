@@ -7,3 +7,13 @@ test("EncodeFromByteArray", () => {
         "cmU2N17Qv9GA0Lw2Nw==",
     );
 });
+
+test("DecodeToByteArray", () => {
+    expect(Base64.decodeToByteArray("0YPQvDY30YvRhNGL")).toStrictEqual([
+        209, 131, 208, 188, 54, 55, 209, 139, 209, 132, 209, 139,
+    ]);
+    expect(Base64.decodeToByteArray("0LB5NzgqJjY=")).toStrictEqual([208, 176, 121, 55, 56, 42, 38, 54]);
+    expect(Base64.decodeToByteArray("cmU2N17Qv9GA0Lw2Nw==")).toStrictEqual([
+        114, 101, 54, 55, 94, 208, 191, 209, 128, 208, 188, 54, 55,
+    ]);
+});

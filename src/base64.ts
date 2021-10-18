@@ -31,3 +31,33 @@ export const encodeByteArray = (bytes: number[]): string => {
 
     return result;
 };
+
+export const decodeToByteArray = (base64String: string): number[] => {
+    let result: number[] = [];
+    let byte1, byte2, byte3, encoded1, encoded2, encoded3, encoded4;
+    let i = 0;
+
+    base64String = base64String.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+    while (i < base64String.length) {
+        encoded1 = base64Keys.indexOf(base64String.charAt(i++));
+        encoded2 = base64Keys.indexOf(base64String.charAt(i++));
+        encoded3 = base64Keys.indexOf(base64String.charAt(i++));
+        encoded4 = base64Keys.indexOf(base64String.charAt(i++));
+
+        byte1 = (encoded1 << 2) | (encoded2 >> 4);
+        byte2 = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+        byte3 = ((encoded3 & 3) << 6) | encoded4;
+
+        result.push(byte1);
+
+        if (encoded3 !== 64) {
+            result.push(byte2);
+        }
+        if (encoded4 !== 64) {
+            result.push(byte3);
+        }
+    }
+
+    return result;
+};

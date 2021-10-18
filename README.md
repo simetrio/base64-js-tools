@@ -1,6 +1,8 @@
 base64-js-tools
 =========
 
+[![NPM Version](http://img.shields.io/npm/v/base64-js-tools.svg?style=flat)](https://www.npmjs.com/package/base64-js-tools)
+
 Encode/Decode base64 from byte array or text.
 
 ## Example

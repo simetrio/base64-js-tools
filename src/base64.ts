@@ -1,28 +1,23 @@
+// tslint:disable:no-bitwise
+
 const base64Keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+const base64End = 64;
 
 export const encodeByteArray = (bytes: number[]): string => {
     let result = "";
-    let byte1, byte2, byte3, encoded1, encoded2, encoded3, encoded4;
     let i = 0;
 
     while (i < bytes.length) {
-        byte1 = bytes[i++];
-        byte2 = bytes[i++];
-        byte3 = bytes[i++];
+        const byte1 = bytes[i++];
+        const byte2 = bytes[i++];
+        const byte3 = bytes[i++];
 
-        encoded1 = byte1 >> 2;
-        encoded2 = ((byte1 & 3) << 4) | (byte2 >> 4);
-        encoded3 = ((byte2 & 15) << 2) | (byte3 >> 6);
-        encoded4 = byte3 & 63;
+        const encoded1 = byte1 >> 2;
+        const encoded2 = ((byte1 & 3) << 4) | (byte2 >> 4);
+        const encoded3 = isNaN(byte2) ? base64End : ((byte2 & 15) << 2) | (byte3 >> 6);
+        const encoded4 = isNaN(byte2) || isNaN(byte3) ? base64End : byte3 & 63;
 
-        if (isNaN(byte2)) {
-            encoded3 = encoded4 = 64;
-        } else if (isNaN(byte3)) {
-            encoded4 = 64;
-        }
-
-        result =
-            result +
+        result +=
             base64Keys.charAt(encoded1) +
             base64Keys.charAt(encoded2) +
             base64Keys.charAt(encoded3) +
@@ -33,28 +28,27 @@ export const encodeByteArray = (bytes: number[]): string => {
 };
 
 export const decodeToByteArray = (base64String: string): number[] => {
-    let result: number[] = [];
-    let byte1, byte2, byte3, encoded1, encoded2, encoded3, encoded4;
+    const result: number[] = [];
     let i = 0;
 
     base64String = base64String.replace(/[^A-Za-z0-9\+\/\=]/g, "");
 
     while (i < base64String.length) {
-        encoded1 = base64Keys.indexOf(base64String.charAt(i++));
-        encoded2 = base64Keys.indexOf(base64String.charAt(i++));
-        encoded3 = base64Keys.indexOf(base64String.charAt(i++));
-        encoded4 = base64Keys.indexOf(base64String.charAt(i++));
+        const encoded1 = base64Keys.indexOf(base64String.charAt(i++));
+        const encoded2 = base64Keys.indexOf(base64String.charAt(i++));
+        const encoded3 = base64Keys.indexOf(base64String.charAt(i++));
+        const encoded4 = base64Keys.indexOf(base64String.charAt(i++));
 
-        byte1 = (encoded1 << 2) | (encoded2 >> 4);
-        byte2 = ((encoded2 & 15) << 4) | (encoded3 >> 2);
-        byte3 = ((encoded3 & 3) << 6) | encoded4;
+        const byte1 = (encoded1 << 2) | (encoded2 >> 4);
+        const byte2 = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+        const byte3 = ((encoded3 & 3) << 6) | encoded4;
 
         result.push(byte1);
 
-        if (encoded3 !== 64) {
+        if (encoded3 !== base64End) {
             result.push(byte2);
         }
-        if (encoded4 !== 64) {
+        if (encoded4 !== base64End) {
             result.push(byte3);
         }
     }

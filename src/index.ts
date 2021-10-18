@@ -1,8 +1,8 @@
 import { decodeToByteArray, encodeByteArray } from "./base64";
 
 export const Base64: IBase64 = {
-    encodeByteArray: encodeByteArray,
-    decodeToByteArray: decodeToByteArray,
+    encodeByteArray,
+    decodeToByteArray,
 };
 
 interface IBase64 {

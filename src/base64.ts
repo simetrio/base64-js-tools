@@ -1,5 +1,7 @@
 // tslint:disable:no-bitwise
 
+import { utf8 } from "./utf8";
+
 const base64Keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 const base64End = 64;
 
@@ -25,6 +27,17 @@ export const encodeByteArray = (bytes: number[]): string => {
     }
 
     return result;
+};
+
+export const encodeText = (text: string): string => {
+    const utf8Text = utf8.encode(text);
+
+    const byteArray: number[] = [];
+    for (let i = 0; i < utf8Text.length; i++) {
+        byteArray.push(utf8Text.charCodeAt(i));
+    }
+
+    return encodeByteArray(byteArray);
 };
 
 export const decodeToByteArray = (base64String: string): number[] => {
@@ -54,4 +67,13 @@ export const decodeToByteArray = (base64String: string): number[] => {
     }
 
     return result;
+};
+
+export const decodeToText = (base64String: string): string => {
+    const byteArray = decodeToByteArray(base64String);
+
+    let utf8Text = "";
+    byteArray.forEach((x) => (utf8Text += String.fromCharCode(x)));
+
+    return utf8.decode(utf8Text);
 };

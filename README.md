@@ -5,7 +5,7 @@ base64-js-tools
 
 Encode/Decode base64 from byte array or text
 
-## Example
+## Demo
 
 [Online Base64 Encode File Or Image](https://www.olrix.net/tools/base64-encode-file-or-image/)
 

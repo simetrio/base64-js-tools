@@ -11,13 +11,15 @@ Encode/Decode base64 from byte array or text
 
 [Online Base64 Encode/Decode Text](https://www.olrix.net/tools/base64-encode-decode/)
 
-## Install
+## With npm
+
+### Install
 
 ```shell
 $ npm install --save base64-js-tools
 ```
 
-## Import
+### Import
 
 ```javascript
 import { Base64 } from "base64-js-tools";
@@ -29,7 +31,7 @@ or
 const { Base64 } = require("base64-js-tools");
 ```
 
-or
+## In web browsers 
 
 ```javascript
 <script src="base64.min.js"></script>

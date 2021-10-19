@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>base64-js-tools</title>
+
+    <script src="base64.min.js"></script>
+  </head>
+  <body>
+    <h1>base64-js-tools</h1>
+    <div>
+        <span>Base64.encodeByteArray([208, 176, 121, 55, 56, 42, 38, 54]):</span>
+        <b id="base64-encodeByteArray"></b>
+    </div>
+    <div>
+        <span>Base64.encodeText("dew^&5654"):</span>
+        <b id="base64-encodeText"></b>
+    </div>
+    <div>
+        <span>Base64.decodeToByteArray("0LB5NzgqJjY="):</span>
+        <b id="base64-decodeToByteArray"></b>
+    </div>
+    <div>
+        <span>Base64.decodeToText("ZGV3XiY1NjU0"):</span>
+        <b id="base64-decodeToText"></b>
+    </div>
+
+    <script>
+        document.getElementById("base64-encodeByteArray").innerText = Base64.encodeByteArray([208, 176, 121, 55, 56, 42, 38, 54]);
+        document.getElementById("base64-encodeText").innerText = Base64.encodeText("dew^&5654");
+        document.getElementById("base64-decodeToByteArray").innerText = Base64.decodeToByteArray("0LB5NzgqJjY=");
+        document.getElementById("base64-decodeToText").innerText = Base64.decodeToText("ZGV3XiY1NjU0");
+    </script>
+  </body>
+</html>

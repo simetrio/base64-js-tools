@@ -1,5 +1,7 @@
 import { encodeByteArray, encodeText, decodeToByteArray, decodeToText } from "./base64";
 
+export { encodeByteArray, encodeText, decodeToByteArray, decodeToText } from "./base64";
+
 export const Base64: IBase64 = {
     encodeByteArray,
     encodeText,

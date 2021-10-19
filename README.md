@@ -29,6 +29,12 @@ or
 const { Base64 } = require("base64-js-tools");
 ```
 
+or
+
+```javascript
+<script src="base64.min.js"></script>
+```
+
 ## Usage
 
 ### Encode

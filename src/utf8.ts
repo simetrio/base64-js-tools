@@ -47,7 +47,9 @@ function utf8Decode(value: string): string {
         } else {
             char2 = value.charCodeAt(i + 1);
             char3 = value.charCodeAt(i + 2);
-            result += String.fromCharCode(((char1 & 15) << 12) | ((char2 & 63) << 6) | (char3 & 63));
+            result += String.fromCharCode(
+                ((char1 & 15) << 12) | ((char2 & 63) << 6) | (char3 & 63),
+            );
             i += 3;
         }
     }

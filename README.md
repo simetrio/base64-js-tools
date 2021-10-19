@@ -37,6 +37,12 @@ const { Base64 } = require("base64-js-tools");
 <script src="base64.min.js"></script>
 ```
 
+or
+
+```javascript
+<script src="https://cdn.jsdelivr.net/gh/simetrio/base64-js-tools@1.0.0/base64.min.js"></script>
+```
+
 ## Usage
 
 ### Encode

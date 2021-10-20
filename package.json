@@ -1,6 +1,6 @@
 {
   "name": "base64-js-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Encode/Decode base64 from byte array or text",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

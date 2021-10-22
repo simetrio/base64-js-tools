@@ -40,7 +40,7 @@ const { Base64 } = require("base64-js-tools");
 or
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/simetrio/base64-js-tools@1.0.1/base64.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/base64-js-tools@1.0.2/lib/base64.min.js"></script>
 ```
 
 ## Usage

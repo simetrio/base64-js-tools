@@ -1,6 +1,6 @@
 {
   "name": "base64-js-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Encode/Decode base64 from byte array or text",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,7 +10,7 @@
     "minify": "webpack",
     "format": "prettier --write \"src/**/*.ts\" \"*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
+    "prepare": "npm run build && webpack --env path=lib",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
